@@ -1,0 +1,404 @@
+{
+ "target": "Xiaomi Watch S4 eSIM (o62lte) vela_app.bin",
+ "source": "Xiaomi Watch S5 (q63) v4.101.020 icons",
+ "image_sha256": "caa66693f49477dde7dc4d22d66c728d905dc5d1238065b39c022846293680af",
+ "replace_count": 39,
+ "records": [
+  {
+   "name": "activities",
+   "offset": 265606144,
+   "length": 21772,
+   "s4_format": "I8",
+   "s4_flags": 0,
+   "s5_bytes": 15944,
+   "s5_from": "health",
+   "method": "re-encode"
+  },
+  {
+   "name": "alarm",
+   "offset": 255491584,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "app",
+   "method": "re-encode"
+  },
+  {
+   "name": "barometer",
+   "offset": 243424256,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "health",
+   "method": "re-encode"
+  },
+  {
+   "name": "breath",
+   "offset": 198528000,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "health",
+   "method": "re-encode"
+  },
+  {
+   "name": "calendar",
+   "offset": 197440000,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "app",
+   "method": "re-encode"
+  },
+  {
+   "name": "chronograph",
+   "offset": 195329536,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "app",
+   "method": "re-encode"
+  },
+  {
+   "name": "compass",
+   "offset": 193598464,
+   "length": 21772,
+   "s4_format": "I8",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "app",
+   "method": "copy"
+  },
+  {
+   "name": "debug",
+   "offset": 193044992,
+   "length": 21772,
+   "s4_format": "I8",
+   "s4_flags": 0,
+   "s5_bytes": 82956,
+   "s5_from": "app",
+   "method": "re-encode"
+  },
+  {
+   "name": "esimsms",
+   "offset": 192291328,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 82956,
+   "s5_from": "app",
+   "method": "copy"
+  },
+  {
+   "name": "find_phone",
+   "offset": 191823872,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "app",
+   "method": "re-encode"
+  },
+  {
+   "name": "flashlight",
+   "offset": 191740416,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "app",
+   "method": "re-encode"
+  },
+  {
+   "name": "health_today",
+   "offset": 170015232,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "health",
+   "method": "re-encode"
+  },
+  {
+   "name": "heartrate",
+   "offset": 167684096,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "health",
+   "method": "re-encode"
+  },
+  {
+   "name": "innovation_research",
+   "offset": 158267904,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "health",
+   "method": "re-encode"
+  },
+  {
+   "name": "interconnect",
+   "offset": 158171136,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 82956,
+   "s5_from": "app",
+   "method": "copy"
+  },
+  {
+   "name": "lua",
+   "offset": 158028288,
+   "length": 21772,
+   "s4_format": "I8",
+   "s4_flags": 0,
+   "s5_bytes": 82956,
+   "s5_from": "app",
+   "method": "re-encode"
+  },
+  {
+   "name": "media",
+   "offset": 157868544,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "app",
+   "method": "re-encode"
+  },
+  {
+   "name": "mijia",
+   "offset": 156865024,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "app",
+   "method": "re-encode"
+  },
+  {
+   "name": "nfccard",
+   "offset": 155134976,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "app",
+   "method": "re-encode"
+  },
+  {
+   "name": "oxygen",
+   "offset": 149982208,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "health",
+   "method": "re-encode"
+  },
+  {
+   "name": "perpetual_calendar",
+   "offset": 129220096,
+   "length": 21772,
+   "s4_format": "I8",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "app",
+   "method": "copy"
+  },
+  {
+   "name": "phone",
+   "offset": 128241664,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "app",
+   "method": "re-encode"
+  },
+  {
+   "name": "phone_contacts",
+   "offset": 128459264,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "app",
+   "method": "re-encode"
+  },
+  {
+   "name": "pressure",
+   "offset": 126911488,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "health",
+   "method": "re-encode"
+  },
+  {
+   "name": "recorder",
+   "offset": 108676608,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "app",
+   "method": "re-encode"
+  },
+  {
+   "name": "remote_camera",
+   "offset": 106510848,
+   "length": 21772,
+   "s4_format": "I8",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "app",
+   "method": "copy"
+  },
+  {
+   "name": "settings",
+   "offset": 86933504,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "app",
+   "method": "re-encode"
+  },
+  {
+   "name": "sleep",
+   "offset": 85287936,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "health",
+   "method": "re-encode"
+  },
+  {
+   "name": "sports",
+   "offset": 79359488,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 82956,
+   "s5_from": "health",
+   "method": "copy"
+  },
+  {
+   "name": "sports_course",
+   "offset": 85140480,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 82956,
+   "s5_from": "health",
+   "method": "copy"
+  },
+  {
+   "name": "sports_record",
+   "offset": 78000128,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 82956,
+   "s5_from": "health",
+   "method": "copy"
+  },
+  {
+   "name": "sports_training",
+   "offset": 73838592,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 82956,
+   "s5_from": "health",
+   "method": "copy"
+  },
+  {
+   "name": "timer",
+   "offset": 61684736,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "app",
+   "method": "re-encode"
+  },
+  {
+   "name": "todolist",
+   "offset": 61509632,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "app",
+   "method": "re-encode"
+  },
+  {
+   "name": "voice_aivs",
+   "offset": 54641664,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 17493,
+   "s5_from": "app",
+   "method": "re-encode"
+  },
+  {
+   "name": "voice_alexa",
+   "offset": 53452800,
+   "length": 6005,
+   "s4_format": "I8",
+   "s4_flags": 8,
+   "s5_bytes": 6005,
+   "s5_from": "app",
+   "method": "copy"
+  },
+  {
+   "name": "weather",
+   "offset": 25027072,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "app",
+   "method": "re-encode"
+  },
+  {
+   "name": "womenhealth",
+   "offset": 293376,
+   "length": 82956,
+   "s4_format": "ARGB8888",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "health",
+   "method": "re-encode"
+  },
+  {
+   "name": "wxpay",
+   "offset": 48128,
+   "length": 21772,
+   "s4_format": "I8",
+   "s4_flags": 0,
+   "s5_bytes": 21772,
+   "s5_from": "app",
+   "method": "copy"
+  }
+ ],
+ "skipped": [
+  {
+   "name": "walkie_talkie",
+   "reason": "no S5 counterpart"
+  }
+ ]
+}

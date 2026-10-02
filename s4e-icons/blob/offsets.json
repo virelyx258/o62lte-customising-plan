@@ -1,0 +1,914 @@
+{
+ "magic_len": 15,
+ "magic_rb_len": 15,
+ "records": [
+  {
+   "name": "canary_superblock",
+   "rel": 0,
+   "target": 0,
+   "length": 32
+  },
+  {
+   "name": "activities",
+   "rel": 32,
+   "target": 265606144,
+   "length": 21772
+  },
+  {
+   "name": "alarm",
+   "rel": 21804,
+   "target": 255491584,
+   "length": 82956
+  },
+  {
+   "name": "barometer",
+   "rel": 104760,
+   "target": 243424256,
+   "length": 82956
+  },
+  {
+   "name": "breath",
+   "rel": 187716,
+   "target": 198528000,
+   "length": 82956
+  },
+  {
+   "name": "calendar",
+   "rel": 270672,
+   "target": 197440000,
+   "length": 82956
+  },
+  {
+   "name": "chronograph",
+   "rel": 353628,
+   "target": 195329536,
+   "length": 82956
+  },
+  {
+   "name": "compass",
+   "rel": 436584,
+   "target": 193598464,
+   "length": 21772
+  },
+  {
+   "name": "debug",
+   "rel": 458356,
+   "target": 193044992,
+   "length": 21772
+  },
+  {
+   "name": "esimsms",
+   "rel": 480128,
+   "target": 192291328,
+   "length": 82956
+  },
+  {
+   "name": "find_phone",
+   "rel": 563084,
+   "target": 191823872,
+   "length": 82956
+  },
+  {
+   "name": "flashlight",
+   "rel": 646040,
+   "target": 191740416,
+   "length": 82956
+  },
+  {
+   "name": "health_today",
+   "rel": 728996,
+   "target": 170015232,
+   "length": 82956
+  },
+  {
+   "name": "heartrate",
+   "rel": 811952,
+   "target": 167684096,
+   "length": 82956
+  },
+  {
+   "name": "innovation_research",
+   "rel": 894908,
+   "target": 158267904,
+   "length": 82956
+  },
+  {
+   "name": "interconnect",
+   "rel": 977864,
+   "target": 158171136,
+   "length": 82956
+  },
+  {
+   "name": "lua",
+   "rel": 1060820,
+   "target": 158028288,
+   "length": 21772
+  },
+  {
+   "name": "media",
+   "rel": 1082592,
+   "target": 157868544,
+   "length": 82956
+  },
+  {
+   "name": "mijia",
+   "rel": 1165548,
+   "target": 156865024,
+   "length": 82956
+  },
+  {
+   "name": "nfccard",
+   "rel": 1248504,
+   "target": 155134976,
+   "length": 82956
+  },
+  {
+   "name": "oxygen",
+   "rel": 1331460,
+   "target": 149982208,
+   "length": 82956
+  },
+  {
+   "name": "perpetual_calendar",
+   "rel": 1414416,
+   "target": 129220096,
+   "length": 21772
+  },
+  {
+   "name": "phone",
+   "rel": 1436188,
+   "target": 128241664,
+   "length": 82956
+  },
+  {
+   "name": "phone_contacts",
+   "rel": 1519144,
+   "target": 128459264,
+   "length": 82956
+  },
+  {
+   "name": "pressure",
+   "rel": 1602100,
+   "target": 126911488,
+   "length": 82956
+  },
+  {
+   "name": "recorder",
+   "rel": 1685056,
+   "target": 108676608,
+   "length": 82956
+  },
+  {
+   "name": "remote_camera",
+   "rel": 1768012,
+   "target": 106510848,
+   "length": 21772
+  },
+  {
+   "name": "settings",
+   "rel": 1789784,
+   "target": 86933504,
+   "length": 82956
+  },
+  {
+   "name": "sleep",
+   "rel": 1872740,
+   "target": 85287936,
+   "length": 82956
+  },
+  {
+   "name": "sports",
+   "rel": 1955696,
+   "target": 79359488,
+   "length": 82956
+  },
+  {
+   "name": "sports_course",
+   "rel": 2038652,
+   "target": 85140480,
+   "length": 82956
+  },
+  {
+   "name": "sports_record",
+   "rel": 2121608,
+   "target": 78000128,
+   "length": 82956
+  },
+  {
+   "name": "sports_training",
+   "rel": 2204564,
+   "target": 73838592,
+   "length": 82956
+  },
+  {
+   "name": "timer",
+   "rel": 2287520,
+   "target": 61684736,
+   "length": 82956
+  },
+  {
+   "name": "todolist",
+   "rel": 2370476,
+   "target": 61509632,
+   "length": 82956
+  },
+  {
+   "name": "voice_aivs",
+   "rel": 2453432,
+   "target": 54641664,
+   "length": 82956
+  },
+  {
+   "name": "weather",
+   "rel": 2536388,
+   "target": 25027072,
+   "length": 82956
+  },
+  {
+   "name": "womenhealth",
+   "rel": 2619344,
+   "target": 293376,
+   "length": 82956
+  },
+  {
+   "name": "cc_add",
+   "rel": 2702300,
+   "target": 193594368,
+   "length": 3340
+  },
+  {
+   "name": "cc_air_mode_close",
+   "rel": 2705640,
+   "target": 193576448,
+   "length": 17420
+  },
+  {
+   "name": "cc_air_mode_conn",
+   "rel": 2723060,
+   "target": 193572864,
+   "length": 3340
+  },
+  {
+   "name": "cc_air_mode_open",
+   "rel": 2726400,
+   "target": 193537024,
+   "length": 17420
+  },
+  {
+   "name": "cc_battery_close",
+   "rel": 2743820,
+   "target": 193519104,
+   "length": 17420
+  },
+  {
+   "name": "cc_battery_open",
+   "rel": 2761240,
+   "target": 193501184,
+   "length": 17420
+  },
+  {
+   "name": "cc_bt_connect",
+   "rel": 2778660,
+   "target": 193497600,
+   "length": 3340
+  },
+  {
+   "name": "cc_bt_disconnect",
+   "rel": 2782000,
+   "target": 193494016,
+   "length": 3340
+  },
+  {
+   "name": "cc_cancel",
+   "rel": 2785340,
+   "target": 193490432,
+   "length": 3340
+  },
+  {
+   "name": "cc_drain_close",
+   "rel": 2788680,
+   "target": 193472512,
+   "length": 17420
+  },
+  {
+   "name": "cc_earphone",
+   "rel": 2806100,
+   "target": 193413632,
+   "length": 3340
+  },
+  {
+   "name": "cc_find_phone_close",
+   "rel": 2809440,
+   "target": 193395712,
+   "length": 17420
+  },
+  {
+   "name": "cc_flashlight",
+   "rel": 2826860,
+   "target": 193359872,
+   "length": 17420
+  },
+  {
+   "name": "cc_mobile_network_close",
+   "rel": 2844280,
+   "target": 193338368,
+   "length": 17420
+  },
+  {
+   "name": "cc_mobile_network_open",
+   "rel": 2861700,
+   "target": 193302528,
+   "length": 17420
+  },
+  {
+   "name": "cc_mute_close",
+   "rel": 2879120,
+   "target": 193284608,
+   "length": 17420
+  },
+  {
+   "name": "cc_mute_open",
+   "rel": 2896540,
+   "target": 193266688,
+   "length": 17420
+  },
+  {
+   "name": "cc_not_disturb_close",
+   "rel": 2913960,
+   "target": 193205760,
+   "length": 17420
+  },
+  {
+   "name": "cc_not_disturb_open",
+   "rel": 2931380,
+   "target": 193187840,
+   "length": 17420
+  },
+  {
+   "name": "cc_raise_bright_close",
+   "rel": 2948800,
+   "target": 193152000,
+   "length": 17420
+  },
+  {
+   "name": "cc_raise_bright_open",
+   "rel": 2966220,
+   "target": 193134080,
+   "length": 17420
+  },
+  {
+   "name": "cc_settings",
+   "rel": 2983640,
+   "target": 193116160,
+   "length": 17420
+  },
+  {
+   "name": "sys_lock_icon",
+   "rel": 3001060,
+   "target": 62331392,
+   "length": 2060
+  },
+  {
+   "name": "sys_system_lock",
+   "rel": 3003120,
+   "target": 194351104,
+   "length": 3340
+  },
+  {
+   "name": "sys_quiet_mode",
+   "rel": 3006460,
+   "target": 194466304,
+   "length": 3340
+  },
+  {
+   "name": "sys_no_message",
+   "rel": 3009800,
+   "target": 150767104,
+   "length": 7436
+  },
+  {
+   "name": "sys_notify",
+   "rel": 3017236,
+   "target": 87050752,
+   "length": 5132
+  },
+  {
+   "name": "sys_esim_sms_reminder",
+   "rel": 3022368,
+   "target": 192435200,
+   "length": 7436
+  },
+  {
+   "name": "sys_enable_donot_disturb",
+   "rel": 3029804,
+   "target": 156976640,
+   "length": 5132
+  },
+  {
+   "name": "sys_disable_donot_disturb",
+   "rel": 3034936,
+   "target": 156989952,
+   "length": 5132
+  },
+  {
+   "name": "sys_presure_relax",
+   "rel": 3040068,
+   "target": 127373312,
+   "length": 3340
+  },
+  {
+   "name": "sys_presure_mild",
+   "rel": 3043408,
+   "target": 127390208,
+   "length": 3340
+  },
+  {
+   "name": "sys_presure_mid",
+   "rel": 3046748,
+   "target": 127407104,
+   "length": 3340
+  },
+  {
+   "name": "sys_presure_severe",
+   "rel": 3050088,
+   "target": 127356416,
+   "length": 3340
+  },
+  {
+   "name": "sys_presure_mild32",
+   "rel": 3053428,
+   "target": 127387648,
+   "length": 2060
+  },
+  {
+   "name": "sys_presure_mid32",
+   "rel": 3055488,
+   "target": 127404544,
+   "length": 2060
+  },
+  {
+   "name": "sys_presure_severe32",
+   "rel": 3057548,
+   "target": 127353856,
+   "length": 2060
+  },
+  {
+   "name": "sys_presure_icon",
+   "rel": 3059608,
+   "target": 127410688,
+   "length": 3340
+  },
+  {
+   "name": "sys_press_grade1",
+   "rel": 3062948,
+   "target": 128046592,
+   "length": 2060
+  },
+  {
+   "name": "sys_press_grade2",
+   "rel": 3065008,
+   "target": 128044032,
+   "length": 2060
+  },
+  {
+   "name": "sys_press_grade3",
+   "rel": 3067068,
+   "target": 128041472,
+   "length": 2060
+  },
+  {
+   "name": "sys_press_grade4",
+   "rel": 3069128,
+   "target": 128038912,
+   "length": 2060
+  },
+  {
+   "name": "cc_network_4g",
+   "rel": 3071188,
+   "target": 193241600,
+   "length": 3340
+  },
+  {
+   "name": "cc_network_3g",
+   "rel": 3074528,
+   "target": 193263104,
+   "length": 3340
+  },
+  {
+   "name": "cc_signal_strength",
+   "rel": 3077868,
+   "target": 193112576,
+   "length": 3340
+  },
+  {
+   "name": "cc_signal_strength1",
+   "rel": 3081208,
+   "target": 193108992,
+   "length": 3340
+  },
+  {
+   "name": "cc_signal_strength2",
+   "rel": 3084548,
+   "target": 193105408,
+   "length": 3340
+  },
+  {
+   "name": "cc_signal_strength3",
+   "rel": 3087888,
+   "target": 193101824,
+   "length": 3340
+  },
+  {
+   "name": "cc_signal_strength4",
+   "rel": 3091228,
+   "target": 193098240,
+   "length": 3340
+  },
+  {
+   "name": "cc_location",
+   "rel": 3094568,
+   "target": 193356288,
+   "length": 3340
+  },
+  {
+   "name": "cc_network_3g_signal_1",
+   "rel": 3097908,
+   "target": 193255936,
+   "length": 3340
+  },
+  {
+   "name": "cc_network_3g_signal_2",
+   "rel": 3101248,
+   "target": 193252352,
+   "length": 3340
+  },
+  {
+   "name": "cc_network_3g_signal_3",
+   "rel": 3104588,
+   "target": 193248768,
+   "length": 3340
+  },
+  {
+   "name": "cc_network_3g_signal_4",
+   "rel": 3107928,
+   "target": 193245184,
+   "length": 3340
+  },
+  {
+   "name": "cc_network_3g_no_signal",
+   "rel": 3111268,
+   "target": 193259520,
+   "length": 3340
+  },
+  {
+   "name": "cc_network_4g_signal_1",
+   "rel": 3114608,
+   "target": 193234432,
+   "length": 3340
+  },
+  {
+   "name": "cc_network_4g_signal_2",
+   "rel": 3117948,
+   "target": 193230848,
+   "length": 3340
+  },
+  {
+   "name": "cc_network_4g_signal_3",
+   "rel": 3121288,
+   "target": 193227264,
+   "length": 3340
+  },
+  {
+   "name": "cc_network_4g_signal_4",
+   "rel": 3124628,
+   "target": 193223680,
+   "length": 3340
+  },
+  {
+   "name": "cc_network_4g_no_signal",
+   "rel": 3127968,
+   "target": 193238016,
+   "length": 3340
+  },
+  {
+   "name": "sys_notifications_car",
+   "rel": 3131308,
+   "target": 150829568,
+   "length": 5260
+  },
+  {
+   "name": "sys_notifications_default",
+   "rel": 3136568,
+   "target": 150794752,
+   "length": 32012
+  },
+  {
+   "name": "sys_notifications_default_small",
+   "rel": 3168580,
+   "target": 150791168,
+   "length": 3340
+  },
+  {
+   "name": "sys_notifications_half_going",
+   "rel": 3171920,
+   "target": 150776320,
+   "length": 3052
+  },
+  {
+   "name": "sys_notifications_half_point",
+   "rel": 3174972,
+   "target": 150774784,
+   "length": 1292
+  },
+  {
+   "name": "sys_notifications_no_message",
+   "rel": 3176264,
+   "target": 150767104,
+   "length": 7436
+  },
+  {
+   "name": "sys_phone_icon_app_h_w_48",
+   "rel": 3183700,
+   "target": 128450048,
+   "length": 3340
+  },
+  {
+   "name": "sys_phone_icon_dial",
+   "rel": 3187040,
+   "target": 128446464,
+   "length": 3340
+  },
+  {
+   "name": "sys_phone_icon_hash",
+   "rel": 3190380,
+   "target": 128442880,
+   "length": 3340
+  },
+  {
+   "name": "sys_phone_icon_headphone_icon",
+   "rel": 3193720,
+   "target": 128437248,
+   "length": 5132
+  },
+  {
+   "name": "sys_phone_icon_keypad_icon",
+   "rel": 3198852,
+   "target": 128425984,
+   "length": 5132
+  },
+  {
+   "name": "sys_phone_icon_mic_off",
+   "rel": 3203984,
+   "target": 128389632,
+   "length": 3340
+  },
+  {
+   "name": "sys_phone_icon_mic_on",
+   "rel": 3207324,
+   "target": 128386048,
+   "length": 3340
+  },
+  {
+   "name": "sys_phone_icon_no_calllog",
+   "rel": 3210664,
+   "target": 128378368,
+   "length": 7436
+  },
+  {
+   "name": "sys_phone_icon_no_contacts",
+   "rel": 3218100,
+   "target": 128370688,
+   "length": 7436
+  },
+  {
+   "name": "sys_phone_icon_phone_icon",
+   "rel": 3225536,
+   "target": 128361472,
+   "length": 5132
+  },
+  {
+   "name": "sys_phone_icon_phone_icon_small",
+   "rel": 3230668,
+   "target": 128358912,
+   "length": 2060
+  },
+  {
+   "name": "sys_phone_icon_plus",
+   "rel": 3232728,
+   "target": 128355328,
+   "length": 3340
+  },
+  {
+   "name": "sys_phone_icon_spk_icon_64",
+   "rel": 3236068,
+   "target": 128336896,
+   "length": 5132
+  },
+  {
+   "name": "sys_phone_icon_star",
+   "rel": 3241200,
+   "target": 128333312,
+   "length": 3340
+  },
+  {
+   "name": "sys_phone_icon_watch_icon",
+   "rel": 3244540,
+   "target": 128327680,
+   "length": 5132
+  },
+  {
+   "name": "sys_phone_icon_watch_icon_small",
+   "rel": 3249672,
+   "target": 128325120,
+   "length": 2060
+  },
+  {
+   "name": "sys_phone_widget_widget_contact",
+   "rel": 3251732,
+   "target": 128106496,
+   "length": 13580
+  },
+  {
+   "name": "sys_phone_widget_widget_dialpad",
+   "rel": 3265312,
+   "target": 128092672,
+   "length": 13580
+  },
+  {
+   "name": "sys_phone_widget_widget_phone",
+   "rel": 3278892,
+   "target": 128078848,
+   "length": 13580
+  },
+  {
+   "name": "sys_recorder_ahead3",
+   "rel": 3292472,
+   "target": 108767744,
+   "length": 7436
+  },
+  {
+   "name": "sys_recorder_back3",
+   "rel": 3299908,
+   "target": 108760064,
+   "length": 7436
+  },
+  {
+   "name": "sys_recorder_main",
+   "rel": 3307344,
+   "target": 108673024,
+   "length": 3340
+  },
+  {
+   "name": "sys_recorder_mark",
+   "rel": 3310684,
+   "target": 108669440,
+   "length": 3340
+  },
+  {
+   "name": "sys_recorder_mute",
+   "rel": 3314024,
+   "target": 108662272,
+   "length": 3340
+  },
+  {
+   "name": "sys_recorder_sound",
+   "rel": 3317364,
+   "target": 108655104,
+   "length": 3340
+  },
+  {
+   "name": "sys_recorder_trash",
+   "rel": 3320704,
+   "target": 108608512,
+   "length": 3340
+  },
+  {
+   "name": "sys_recorder_warning",
+   "rel": 3324044,
+   "target": 108600832,
+   "length": 7436
+  },
+  {
+   "name": "sys_timer_icon_close",
+   "rel": 3331480,
+   "target": 62305792,
+   "length": 3340
+  },
+  {
+   "name": "sys_timer_icon_pause",
+   "rel": 3334820,
+   "target": 62298624,
+   "length": 3340
+  },
+  {
+   "name": "sys_timer_icon_restart",
+   "rel": 3338160,
+   "target": 62295040,
+   "length": 3340
+  },
+  {
+   "name": "sys_timer_icon_start",
+   "rel": 3341500,
+   "target": 62025216,
+   "length": 3340
+  },
+  {
+   "name": "sys_timer_icon_stop",
+   "rel": 3344840,
+   "target": 62021632,
+   "length": 3340
+  },
+  {
+   "name": "sys_timer_icon_widget_light12",
+   "rel": 3348180,
+   "target": 61896704,
+   "length": 120844
+  },
+  {
+   "name": "sys_timer_icon_widget_light12_five",
+   "rel": 3469024,
+   "target": 61775360,
+   "length": 120844
+  },
+  {
+   "name": "sys_timer_icon_widget_pause",
+   "rel": 3589868,
+   "target": 61771776,
+   "length": 3340
+  },
+  {
+   "name": "sys_timer_icon_widget_start",
+   "rel": 3593208,
+   "target": 61768192,
+   "length": 3340
+  },
+  {
+   "name": "sys_todolist_checked",
+   "rel": 3596548,
+   "target": 61681152,
+   "length": 3340
+  },
+  {
+   "name": "sys_todolist_create_todo_btn",
+   "rel": 3599888,
+   "target": 61664256,
+   "length": 16396
+  },
+  {
+   "name": "sys_todolist_dark12_bg",
+   "rel": 3616284,
+   "target": 61600768,
+   "length": 62988
+  },
+  {
+   "name": "sys_todolist_empty",
+   "rel": 3679272,
+   "target": 61593088,
+   "length": 7436
+  },
+  {
+   "name": "sys_todolist_reminder_big",
+   "rel": 3686708,
+   "target": 61491712,
+   "length": 17420
+  },
+  {
+   "name": "sys_todolist_reminder_small",
+   "rel": 3704128,
+   "target": 61484032,
+   "length": 7436
+  },
+  {
+   "name": "sys_todolist_tdl_dark11_bg",
+   "rel": 3711564,
+   "target": 61451776,
+   "length": 32012
+  },
+  {
+   "name": "sys_todolist_tdl_light11_bg",
+   "rel": 3743576,
+   "target": 61419520,
+   "length": 32012
+  },
+  {
+   "name": "sys_todolist_unchecked",
+   "rel": 3775588,
+   "target": 61415936,
+   "length": 3340
+  },
+  {
+   "name": "sys_todolist_widget_dark_icon",
+   "rel": 3778928,
+   "target": 61408256,
+   "length": 7436
+  },
+  {
+   "name": "sys_todolist_widget_light_icon",
+   "rel": 3786364,
+   "target": 61400576,
+   "length": 7436
+  }
+ ],
+ "pay_bytes": 3793815,
+ "rb_bytes": 3793815
+}

@@ -1,0 +1,11 @@
+# 文本按 LF 存，二进制一律别碰（.bin/.face 被转换就会损坏负载）
+* text=auto eol=lf
+*.py   text eol=lf
+*.lua  text eol=lf
+*.md   text eol=lf
+*.sh   text eol=lf
+*.json text eol=lf
+*.bin  -text
+*.face -text
+*.png  -text
+*.ttf  -text

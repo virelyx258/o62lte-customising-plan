@@ -1,0 +1,26 @@
+# ==== 体积大 / 有版权 / 可再生成的东西，不进仓库 ====
+
+# 固件分区镜像 + 字体（版权属小米；从官方 OTA 包 / vela_font.bin 自行获取）
+**/inputs/**/*.bin
+**/inputs/fonts/
+**/inputs/**/*.ttf
+**/inputs/**/*.otf
+
+# 第三方编译器（含 Compiler.exe；自行从 GitHub 取）
+**/vendor/LuaDevTemplate-main/
+
+# 构建中间产物
+**/.work/
+**/__pycache__/
+*.pyc
+
+# 逐条负载（可由 make_dd_payload.py / s5e_payload.py 重新生成）
+**/payload/*.bin
+**/payload_rollback/*.bin
+**/payload.json
+
+# 编辑器 / 系统垃圾
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
