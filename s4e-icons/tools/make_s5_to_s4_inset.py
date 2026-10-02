@@ -859,6 +859,11 @@ _dedup = {}
 for _p in plan:
     _dedup[_p['name']] = _p
 plan = list(_dedup.values())
+# 同一槽位（偏移）只留最后一条：不同组可能给同一个槽位起了不同名字
+_byoff2 = {}
+for _p in plan:
+    _byoff2[_p['offset']] = _p
+plan = list(_byoff2.values())
 patch, rollback = bytearray(), bytearray()
 for key, ino in all_items:
     new, old = new_blobs[key], s4.read(ino)
