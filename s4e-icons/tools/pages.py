@@ -75,7 +75,7 @@ def big_button(y=365, text='确认替换'):
 # ---------------------------------------------------------------- 1. 首页
 PAGE_HOME = [
     clock(),
-    title('OS4 Icons'),
+    title('S4e Pt.1'),
     *item(85,  'MdiLightbulbOutline.png',       '快速帮助'),
     *item(181, 'MdiBandage.png',                '开始替换'),
     *item(277, 'MdiInformationOutline.png',     '关于'),
@@ -162,7 +162,7 @@ PAGE_ABOUT = [
     dict(kind='rect', x=52, y=79, w=362, h=204, bg=PLATE, radius=30),
     dict(kind='image', x=194, y=108, w=78, h=78,
          src=os.path.join(DOCS, 'logo_preview.png')),
-    dict(kind='label', x=164, y=192, w=138, h=38, text='OS4 Icons',
+    dict(kind='label', x=178, y=192, w=111, h=38, text='S4e Pt.1',
          size=28, weight=S500, color=WHITE, align='left', vtop=True, lh=38),
     dict(kind='label', x=210, y=227, w=45, h=27, text='1.0.0',
          size=20, weight=S500, color=GRAY, align='left', vtop=True, lh=27),

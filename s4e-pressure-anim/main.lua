@@ -557,7 +557,14 @@ local function buildHome()
   local p = newPage()
   if not p then return nil end
   clockLabel(p)
-  pageTitle(p, ROLE == 'restore' and 'S4PAnim还原' or 'S4PAnim', 159, 158)
+  -- 盘内标题 = 显示名（不再用内部代号 S4PAnim）；x 按真 MiSans 30px 量出的宽度居中：
+  --   'S4e Pt.2' = 123 -> x = (466-123)/2 = 171.5 -> 172
+  --   'S4e Pt.2 · 还原' = 220 -> x = (466-220)/2 = 123
+  if ROLE == 'restore' then
+    pageTitle(p, 'S4e Pt.2 · 还原', 123, 222)
+  else
+    pageTitle(p, 'S4e Pt.2', 172, 125)
+  end
   listItem(p, 85, 'ic_help', '快速帮助', function() show(pages.help) end)
   listItem(p, 181, 'ic_replace', ROLE == 'restore' and '开始还原' or '开始替换', function()
     pendingVariant = 'replace'
@@ -577,22 +584,30 @@ local function buildHelp()
   setClickable(t)
   bind(t, function() show(pages.home) end)
 
-  listItem(p, 85, 'ic_check', '环境预检查', function() doCheck() end)
-  desc1 = lab(p, { x = 65, y = 176, w = 338, h = 72,
+  -- 竖排 4 个元素的 y：76 / 166 / 236 / 326。
+  -- 原来 85 / 176 / 256 / 344 时，末尾那句 2 行块的**第 2 行**（y 377..410）已经越过圆边
+  -- （仓库外 check_clip_real.py 实测：replace 盘 229 越界像素，restore 盘 23 像素），
+  -- 因为整页内容 88+66+88+66=308px，而 466 圆在 x=65 处最多只给到 y<=394。
+  -- 4 个元素整体上移 9~22px 后：整页 replace/restore 都是 0 越界、0 溢框（最远像素 228.2 < 233）。
+  listItem(p, 76, 'ic_check', '环境预检查', function() doCheck() end)
+  desc1 = lab(p, { x = 65, y = 166, w = 338, h = 72,
                    text = '检查原始资源状态、分区可写情况等。',
                    text_color = C_GRAY, font_size = 24, text_font = F_BODY })
 
   -- 拆盘之后：本盘只装一份负载，「回滚/恢复」由另一份盘负责
-  listItem(p, 256, 'ic_rollback', ROLE == 'restore' and '恢复修改' or '回滚修改', function()
+  listItem(p, 236, 'ic_rollback', ROLE == 'restore' and '恢复修改' or '回滚修改', function()
     if ROLE == 'restore' then
-      setDesc1('本盘是还原盘。要重新换回动画，请安装 S4PAnim.face。', C_GRAY)
+      setDesc1('本盘是还原盘。要重新换回动画，请安装 S4e Pt.2。', C_GRAY)
     else
-      setDesc1('本盘只负责替换。要还原原厂动画，请安装 S4PAnimRestore.face。', C_GRAY)
+      setDesc1('本盘只负责替换。要还原原厂动画，请安装 S4e Pt.2 · 还原。', C_GRAY)
     end
   end)
-  lab(p, { x = 65, y = 344, w = 334, h = 72,
+  -- 换行写死成 2 行：24px 行高 33 -> 2 行 66 才放得进 h=72；
+  -- 原来 w=334 时这句会被折成 3 行（第 3 行整个在圆外），所以框宽 334 -> 366
+  -- （x=65 不动；实测行宽 360/306）。
+  lab(p, { x = 65, y = 326, w = 366, h = 72,
            text = ROLE == 'restore' and '把压力检测动画写回原厂样式。'
-                  or '本盘不含回滚数据（体积减半），还原请装 S4PAnimRestore.face。',
+                  or '本盘不含回滚数据（体积减半），\n还原请装 S4e Pt.2 · 还原。',
            text_color = C_GRAY, font_size = 24, text_font = F_BODY })
   return p
 end
@@ -652,9 +667,15 @@ local function buildAbout()
   if IMG.logo then
     pcall(function() p:Image { src = IMG.logo, x = 194, y = 108 } end)
   end
-  -- "OS4 Icons" 28px 量得 138px -> 居中 x = 66 + (334-138)/2 = 164
-  lab(p, { x = 164, y = 192, w = 138, h = 38, text = ROLE == 'restore' and 'S4PAnim还原' or 'S4PAnim',
-           text_color = C_WHITE, font_size = 28, text_font = F_ITEM })
+  -- 28px 量得：'S4e Pt.2' = 113 -> 居中 x = 233 - 56.5 = 176.5 -> 176
+  --            'S4e Pt.2 · 还原' = 203 -> x = 233 - 101.5 = 131.5 -> 132
+  if ROLE == 'restore' then
+    lab(p, { x = 132, y = 192, w = 205, h = 38, text = 'S4e Pt.2 · 还原',
+             text_color = C_WHITE, font_size = 28, text_font = F_ITEM })
+  else
+    lab(p, { x = 176, y = 192, w = 115, h = 38, text = 'S4e Pt.2',
+             text_color = C_WHITE, font_size = 28, text_font = F_ITEM })
+  end
   -- "1.0.0" 20px 量得 45px -> 居中 x = 66 + (334-45)/2 = 210
   lab(p, { x = 210, y = 227, w = 45, h = 27, text = '1.0.0',
            text_color = C_GRAY, font_size = 20, text_font = F_VER })

@@ -10,6 +10,9 @@ DEVICE_TYPE = "362"                 # 与官方模板一致（362 = S4 家族）
 ENTRY_WIDGET = "app_lua%2Fmain.lua"
 PREVIEW_SIZE = 326                  # Compiler.exe 对 362 设备强制 326x326
 SCREEN_SIZE = 466
+# 手表上显示的表盘名：写进 .fprj 的 <Screen Title>，同样也是 watchface.config.json 的 projectName。
+# 只是「显示名」—— 路径/标识（NAME、.fprj 文件名、dist/<NAME>.face、表盘 id）全部不变。
+DISPLAY_NAME = 'S4e Pt.1'
 WF_ID = "491552801"
 FONTS = [r'C:\Windows\Fonts\msyhbd.ttc', r'C:\Windows\Fonts\msyh.ttc',
          r'C:\Windows\Fonts\arialbd.ttf', r'C:\Windows\Fonts\arial.ttf']
@@ -48,12 +51,12 @@ def build(name):
     os.makedirs(os.path.join(fprj, 'images'), exist_ok=True)
     os.makedirs(os.path.join(fprj, 'app', 'lua'), exist_ok=True)
 
-    cfg = {"projectName": name, "watchfaceId": WF_ID, "power_consumption": "3",
+    cfg = {"projectName": DISPLAY_NAME, "watchfaceId": WF_ID, "power_consumption": "3",
            "resourceBin": {"lvglVersion": 9, "colorFormat": "I8", "compress": "NONE",
                            "input": "watchface/fprj/images/preview.png", "name": "preview"}}
     json.dump(cfg, open(os.path.join(base, 'watchface.config.json'), 'w', encoding='utf-8'),
               indent=4, ensure_ascii=False)
-    write_fprj(os.path.join(fprj, f'{name}.fprj'), name)
+    write_fprj(os.path.join(fprj, f'{name}.fprj'), DISPLAY_NAME)
     make_preview(os.path.join(fprj, 'images', 'preview.png'))
     shutil.copyfile(os.path.join(PROJ, 'main.lua'),
                     os.path.join(fprj, 'app', 'lua', 'main.lua'))

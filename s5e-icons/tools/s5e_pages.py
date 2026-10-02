@@ -63,7 +63,7 @@ def big_button(y, text):
     ]
 
 
-PAGE_HOME = [clock(), title('OS4 Icons', 164, 152),
+PAGE_HOME = [clock(), title('S5e Pt.1', 179, 123),
              *item(88, 'ic_help', '快速帮助'),
              *item(186, 'ic_replace', '开始替换'),
              *item(285, 'ic_about', '关于')]
@@ -122,7 +122,7 @@ PAGE_ABOUT = [
     clock(), back_arrow(198), title('关于', 220, 62),
     dict(kind='rect', x=54, y=81, w=373, h=210, bg=PLATE, radius=31),
     dict(kind='image', x=200, y=111, w=80, h=80, src=os.path.join(DOCS, 'logo_preview_480.png')),
-    dict(kind='label', x=170, y=198, w=141, h=40, text='OS4 Icons',
+    dict(kind='label', x=183, y=198, w=116, h=40, text='S5e Pt.1',
          size=29, weight=S500, color=WHITE, align='left', vtop=True),
     dict(kind='label', x=216, y=234, w=49, h=28, text='1.0.0',
          size=21, weight=S500, color=GRAY, align='left', vtop=True),

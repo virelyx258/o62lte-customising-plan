@@ -6,7 +6,9 @@
   体积原因：本盘各 ~16 MB，不再额外复制工具链变体（要的话去掉下面的 SKIP_TOOLCHAIN 即可）
 """
 import os, sys, shutil, subprocess, hashlib
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from paths import WORK, DIST
+from build_faces import workspace_fprj      # 工作区 .fprj 归一（vendor 会把它改名成显示名）
 
 BUILD = os.path.join(WORK, 'build')
 TARGETS = {'S4PAnim': '362150102', 'S4PAnimRestore': '362150102'}
@@ -19,7 +21,9 @@ def compile_raw(name):
     if not os.path.exists(exe):
         print('  %s: 跳过（没有构建树，先跑 build_faces.py %s）' % (name, name))
         return None
-    fprj = os.path.join(w, 'watchface', 'fprj', name + '.fprj')
+    # vendor 的 sync_watchface_config.ps1 会把工作区 .fprj 改名成显示名（S4e Pt.2）；
+    # 这里取工作区**唯一**那份 .fprj 并归一回 <name>.fprj，再交给 Compiler.exe 裸编译。
+    fprj = workspace_fprj(w)
     out = os.path.join(WORK, 'raw_' + name)
     if os.path.exists(out):
         shutil.rmtree(out)

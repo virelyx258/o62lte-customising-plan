@@ -37,6 +37,13 @@ def prepare(name):
 
     shutil.copyfile(os.path.join(ov, 'watchface', 'fprj', f'{name}.fprj'),
                     os.path.join(dst, 'watchface', 'fprj', f'{name}.fprj'))
+    # projectName 现在就是「手表上显示的表盘名」（见 make_overlays.py 的 DISPLAY_NAME）。
+    # 官方 scripts/build_face.ps1 先跑 sync_watchface_config.ps1：它按 projectName 找
+    # watchface/fprj/<projectName>.fprj，找不到就把目录里**唯一**那份 .fprj 改名成它，
+    # 并把该 fprj 的 <Screen Title> 覆盖成 projectName —— 所以这条流水线里真正进 .face 的
+    # 显示名就是这个 projectName。注意 fprj 目录里必须**只有一份** .fprj：Compiler.exe 会
+    # 按目录里每份 .fprj 把资源各打包一遍，多放一份副本会让 .face 直接翻倍。
+    disp = cfg['projectName']
     shutil.copyfile(os.path.join(ov, 'watchface', 'fprj', 'images', 'preview.png'),
                     os.path.join(dst, 'watchface', 'fprj', 'images', 'preview.png'))
     shutil.copyfile(os.path.join(ov, 'watchface', 'fprj', 'app', 'lua', 'main.lua'),
@@ -51,18 +58,34 @@ def prepare(name):
             shutil.rmtree(tgt)
         shutil.copytree(os.path.join(ovimg, d), tgt)
         print(f'   {name}: app/images/{d}/ -> {len(os.listdir(tgt))} files')
-    return dst
+    return dst, cfg['projectName']
 
 
-def build(dst):
+def build(dst, name, disp):
     ps = os.path.join(dst, 'scripts', 'build_face.ps1')
-    r = subprocess.run(['powershell', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', ps],
+    # 显式指定产物名：build_face.ps1 默认按 projectName（现在 = 显示名，可能带空格/点）命名产物，
+    # 这里仍然用 NAME，保证 bin/<NAME>.face、dist/<NAME>.face 这些标识路径不变。
+    r = subprocess.run(['powershell', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', ps,
+                        '-FaceName', f'{name}.face'],
                        capture_output=True, text=True, errors='replace')
     for l in [x for x in (r.stdout or '').splitlines() if x.strip()][-6:]:
         print('   |', l)
     if r.returncode != 0:
         print('   !! build failed, rc=', r.returncode)
-    return r.returncode == 0
+        return False
+    # sync 已经把 .fprj 改名成 <显示名>.fprj（里面的 <Screen Title> 也写成了显示名）；
+    # 这里改回 NAME，好让下游 finalize_faces.compile_raw 仍按 fprj/<NAME>.fprj 找它。
+    fprj_ident = os.path.join(dst, 'watchface', 'fprj', f'{name}.fprj')
+    fprj_disp = os.path.join(dst, 'watchface', 'fprj', f'{disp}.fprj')
+    if disp != name and os.path.exists(fprj_disp) and not os.path.exists(fprj_ident):
+        os.replace(fprj_disp, fprj_ident)
+    # 官方脚本按 projectName 命名产物（bin/<显示名>.face）；-FaceName 已经把它压成 NAME，
+    # 万一没生效，这里再兜一次（内容一样，只差文件名）。
+    face = os.path.join(dst, 'bin', f'{name}.face')
+    alt = os.path.join(dst, 'bin', f'{disp}.face')
+    if disp != name and os.path.exists(alt) and not os.path.exists(face):
+        os.replace(alt, face)
+    return True
 
 
 if __name__ == '__main__':
@@ -71,8 +94,8 @@ if __name__ == '__main__':
         if only and name != only:
             continue
         print(f'== {name} (id={TARGETS[name][0]}) ==')
-        dst = prepare(name)
-        ok = build(dst)
+        dst, disp = prepare(name)
+        build(dst, name, disp)
         face = os.path.join(dst, 'bin', f'{name}.face')
         if os.path.exists(face):
             print(f'   OK  {face}  {os.path.getsize(face)} bytes')

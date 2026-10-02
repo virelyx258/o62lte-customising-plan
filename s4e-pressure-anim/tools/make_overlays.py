@@ -5,6 +5,10 @@ from paths import PROJ, WORK
 
 ROLE = (sys.argv[1] if len(sys.argv) > 1 else 'replace').lower()
 NAME = 'S4PAnim' if ROLE == 'replace' else 'S4PAnimRestore'
+# 手表上显示的表盘名：replace / restore 两张盘共用同一个名字（写进 .fprj 的 <Screen Title>，
+# 同时就是 watchface.config.json 的 projectName）。只是「显示名」—— NAME、.fprj 文件名、
+# dist/<NAME>.face、.work/build/<NAME>、表盘 id 这些路径/标识全部不变。
+DISPLAY_NAME = 'S4e Pt.2'
 OUT = os.path.join(WORK, 'overlay')
 ASSETS = os.path.join(PROJ, 'assets')
 
@@ -49,12 +53,12 @@ def build(name, role):
     os.makedirs(os.path.join(fprj, 'images'), exist_ok=True)
     os.makedirs(os.path.join(fprj, 'app', 'lua'), exist_ok=True)
 
-    cfg = {"projectName": name, "watchfaceId": WF_ID, "power_consumption": "3",
+    cfg = {"projectName": DISPLAY_NAME, "watchfaceId": WF_ID, "power_consumption": "3",
            "resourceBin": {"lvglVersion": 9, "colorFormat": "I8", "compress": "NONE",
                            "input": "watchface/fprj/images/preview.png", "name": "preview"}}
     json.dump(cfg, open(os.path.join(base, 'watchface.config.json'), 'w', encoding='utf-8'),
               indent=4, ensure_ascii=False)
-    write_fprj(os.path.join(fprj, f'{name}.fprj'), name)
+    write_fprj(os.path.join(fprj, f'{name}.fprj'), DISPLAY_NAME)
     make_preview(os.path.join(fprj, 'images', 'preview.png'))
     shutil.copyfile(os.path.join(PROJ, 'main.lua'),
                     os.path.join(fprj, 'app', 'lua', 'main.lua'))

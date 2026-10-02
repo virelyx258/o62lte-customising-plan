@@ -464,7 +464,8 @@ local function buildHome()
   local p = newPage()
   if not p then return nil end
   clockLabel(p)
-  pageTitle(p, 'OS4 Icons', 159, 158)
+  -- 盘内标题 = 显示名：'S4e Pt.1' 30px 量得 118 -> x = (466-118)/2 = 174
+  pageTitle(p, 'S4e Pt.1', 174, 120)
   listItem(p, 85, 'ic_help', '快速帮助', function() show(pages.help) end)
   listItem(p, 181, 'ic_replace', '开始替换', function()
     pendingVariant = 'replace'
@@ -556,8 +557,8 @@ local function buildAbout()
   if IMG.logo then
     pcall(function() p:Image { src = IMG.logo, x = 194, y = 108 } end)
   end
-  -- "OS4 Icons" 28px 量得 138px -> 居中 x = 66 + (334-138)/2 = 164
-  lab(p, { x = 164, y = 192, w = 138, h = 38, text = 'OS4 Icons',
+  -- 'S4e Pt.1' 28px 量得 109 -> 居中 x = 233 - 109/2 = 178.5 -> 178
+  lab(p, { x = 178, y = 192, w = 111, h = 38, text = 'S4e Pt.1',
            text_color = C_WHITE, font_size = 28, text_font = F_ITEM })
   -- "1.0.0" 20px 量得 45px -> 居中 x = 66 + (334-45)/2 = 210
   lab(p, { x = 210, y = 227, w = 45, h = 27, text = '1.0.0',

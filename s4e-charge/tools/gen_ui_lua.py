@@ -12,6 +12,7 @@ rb 表里放的是**另一侧字节前 64 B 的指纹**（只给版本校验用�
 """
 import os, re, sys, json, subprocess
 from paths import PROJ, WORK
+from build_faces import workspace_fprj      # 工作区 .fprj 归一（vendor 会把它改名成显示名）
 
 ROLE = (sys.argv[1] if len(sys.argv) > 1 else 'replace').lower()
 NAME = 'S4Chg' if ROLE == 'replace' else 'S4ChgRestore'
@@ -62,6 +63,10 @@ def main():
     print('第 1 遍：用占位符编一次，量出资源在 resource.bin 里的位置')
     run('make_overlays.py', ROLE)
     run('build_faces.py', NAME)
+    # vendor 的 build_face.ps1 会把工作区 .fprj 改名成 projectName（= 显示名）；
+    # 编完立刻取**唯一**那份并归一回 <NAME>.fprj，后面的 finalize_faces 才有得可读。
+    print('  fprj 归一：%s' % os.path.relpath(
+        workspace_fprj(os.path.join(WORK, 'build', NAME)), WORK))
     face = open(FACE, 'rb').read()
     print('  face %d bytes' % len(face))
 
@@ -97,6 +102,10 @@ def main():
     open(RESOLVED, 'w', encoding='utf-8', newline='\n').write(resolved)
     print('第 2 遍：回填后的 Lua（%d bytes），重新编译' % len(resolved))
     run('build_faces.py', NAME)
+    # 同上：finalize_faces.compile_raw 是按 fprj/<NAME>.fprj 路径找工作区 fprj 的，
+    # vendor 刚把它改名成显示名，这里必须归一（并断言只有一份）后再往下走。
+    print('  fprj 归一：%s' % os.path.relpath(
+        workspace_fprj(os.path.join(WORK, 'build', NAME)), WORK))
     print(run('finalize_faces.py', NAME).strip())
 
     face2 = open(FACE, 'rb').read()

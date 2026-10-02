@@ -21,7 +21,8 @@ TPL = TEMPLATE
 OVER = os.path.join(WORK, 'overlay', 'S5eIcons')
 BUILD = os.path.join(WORK, 'build', 'S5eIcons')
 OUTFACE = DIST
-NAME = 'S5eIcons'
+NAME = 'S5eIcons'            # 路径/标识（文件名、目录名、dist 名都用它，**不要改**）
+DISPLAY_NAME = 'S5e Pt.1'    # 手表上显示的表盘名 = fprj 的 <Screen Title> = config 的 projectName
 WF_ID = '462150101'          # 462 = S5 家族（固件自带 AOD 表盘是 462150001..8）
 DEVICE_TYPE = '462'
 SCREEN = 480
@@ -75,7 +76,7 @@ def prepare(lua_text):
     if os.path.exists(old):
         os.remove(old)
 
-    cfg = {"projectName": NAME, "watchfaceId": WF_ID, "power_consumption": "3",
+    cfg = {"projectName": DISPLAY_NAME, "watchfaceId": WF_ID, "power_consumption": "3",
            "resourceBin": {"lvglVersion": 9, "colorFormat": "I8", "compress": "NONE",
                            "input": "watchface/fprj/images/preview.png", "name": "preview"}}
     json.dump(cfg, open(os.path.join(BUILD, 'watchface.config.json'), 'w', encoding='utf-8'),
@@ -86,11 +87,11 @@ def prepare(lua_text):
             '    <Screen Title="%s" Bitmap="preview.png">\r\n'
             '        <Widget Shape="34" Name="app_lua%%2Fmain.lua" X="0" Y="0" '
             'Width="%d" Height="%d" Alpha="0" />\r\n'
-            '    </Screen>\r\n</FaceProject>\r\n') % (DEVICE_TYPE, NAME, SCREEN, SCREEN)
-    open(os.path.join(BUILD, 'watchface', 'fprj', NAME + '.fprj'), 'w',
+            '    </Screen>\r\n</FaceProject>\r\n') % (DEVICE_TYPE, DISPLAY_NAME, SCREEN, SCREEN)
+    fprjdir = os.path.join(BUILD, 'watchface', 'fprj')
+    open(os.path.join(fprjdir, NAME + '.fprj'), 'w',
          encoding='utf-16', newline='').write(fprj)
 
-    fprjdir = os.path.join(BUILD, 'watchface', 'fprj')
     make_preview(os.path.join(fprjdir, 'images', 'preview.png'))
     open(os.path.join(fprjdir, 'app', 'lua', 'main.lua'), 'w',
          encoding='utf-8', newline='\n').write(lua_text)
@@ -110,8 +111,12 @@ def prepare(lua_text):
 
 def run_build(script=True):
     ps = os.path.join(BUILD, 'scripts', 'build_face.ps1')
-    r = subprocess.run(['powershell', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', ps],
+    # 显式给 -FaceName：vendor 脚本默认拿 config 的 projectName 当输出名，而 projectName
+    # 现在是**显示名**（S5e Pt.1），交付文件名必须还是 NAME.face。
+    r = subprocess.run(['powershell', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', ps,
+                        '-FaceName', NAME + '.face'],
                        capture_output=True, text=True, errors='replace')
+    workspace_fprj()      # vendor 可能把 .fprj 改名成显示名，编完改回 NAME.fprj
     tail = [l for l in ((r.stdout or '') + (r.stderr or '')).splitlines() if l.strip()][-6:]
     for l in tail:
         log('   | ' + l)
@@ -121,9 +126,28 @@ def run_build(script=True):
     return open(face, 'rb').read()
 
 
+def workspace_fprj():
+    """把工作区里的 .fprj 归一成 NAME.fprj，并返回它的路径。
+
+    我们写下去时就是 NAME.fprj，但 vendor 的 build_face.ps1 会先跑
+    sync_watchface_config.ps1：它按 config 的 projectName（现在是**显示名**）找
+    <projectName>.fprj，找不到就把唯一那份改名过去（Title 也被改写成 projectName）。
+    编完这里再改回 NAME.fprj —— 这样工作区里始终只有一份 .fprj（放两份会被
+    Compiler.exe 并成双倍资源，实测资源整体翻倍），文件名也保持项目标识不变。
+    """
+    d = os.path.join(BUILD, 'watchface', 'fprj')
+    fs = sorted(f for f in os.listdir(d) if f.endswith('.fprj'))
+    if len(fs) != 1:
+        raise SystemExit('watchface/fprj 下的 .fprj 应恰好 1 份，实际：%s' % fs)
+    want = os.path.join(d, NAME + '.fprj')
+    if fs[0] != NAME + '.fprj':
+        os.replace(os.path.join(d, fs[0]), want)
+    return want
+
+
 def compile_raw():
     exe = os.path.join(BUILD, 'watchface', 'tools', 'Compiler.exe')
-    fprj = os.path.join(BUILD, 'watchface', 'fprj', NAME + '.fprj')
+    fprj = workspace_fprj()
     out = os.path.join(BUILD, 'raw')
     if os.path.exists(out):
         shutil.rmtree(out)
