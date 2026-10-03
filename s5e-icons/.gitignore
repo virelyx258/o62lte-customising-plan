@@ -1,6 +1,0 @@
-# 大文件 / 中间产物：不进仓库
-.work/
-inputs/
-vendor/
-__pycache__/
-*.pyc
